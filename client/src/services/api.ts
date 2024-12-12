@@ -14,7 +14,6 @@ export const api = axios.create({
 export const getSpendingByCategory = async (): Promise<
   SpendingByCategory[]
 > => {
-  // This will be implemented when we have the backend ready
   return [
     { category: "Food", amount: 300, transactionCount: 5 },
     { category: "Transport", amount: 200, transactionCount: 8 },
@@ -25,6 +24,5 @@ export const getSpendingByCategory = async (): Promise<
 };
 
 export const getTransactions = async (): Promise<Transaction[]> => {
-  // This will be implemented when we have the backend ready
   return [];
 };

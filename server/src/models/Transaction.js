@@ -17,6 +17,7 @@ class Transaction {
     return db("transactions").insert(transaction).returning("*");
   }
 
+
   static async processRefund(transactionId) {
     const transaction = await db("transactions")
       .where({ id: transactionId })
@@ -27,7 +28,6 @@ class Transaction {
     }
 
     return db.transaction(async (trx) => {
-      // Create refund record
       await trx("transactions").insert({
         amount: -transaction.amount,
         category: transaction.category,
@@ -36,12 +36,17 @@ class Transaction {
         status: "completed",
       });
 
-      // Update original transaction
       await trx("transactions")
         .where({ id: transactionId })
         .update({ status: "refunded" });
     });
   }
+
+  
+  static async getByTransactionId(transactionId) {
+    return db("transactions").where({ transactionId }).first();
+  }
+  
 }
 
 module.exports = Transaction;

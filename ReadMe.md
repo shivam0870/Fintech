@@ -15,6 +15,8 @@ This project is a full-stack financial dashboard application that provides budge
 
 ### Installation
 1. Clone the repository
+
+
 2. Install dependencies:
    ```bash
    npm run install-all

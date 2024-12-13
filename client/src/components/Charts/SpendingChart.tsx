@@ -70,6 +70,7 @@ const SpendingChart: React.FC = () => {
                 (category.amount /
                   sanitizedData.reduce((sum, item) => sum + item.amount, 0)) *
                 100
+                
               ).toFixed(2);
               return `Percentage: ${percentage}%`;
             },
@@ -94,3 +95,4 @@ const SpendingChart: React.FC = () => {
 };
 
 export default SpendingChart;
+
